@@ -11,6 +11,15 @@ user_questions = [
     },
 ]
 
+
+def get_users():
+    usersFileName = "data/users.json"
+    users = []
+    if file_exists(usersFileName):
+        usersFile = open(usersFileName, "r")
+        users = json.loads(usersFile.read())
+    return users
+
 def add_user(*args):
     infos = dict()
     usersFileName = "data/users.json"

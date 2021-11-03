@@ -1,6 +1,6 @@
 from PyInquirer import prompt
 from datetime import date
-from user import add_user
+from user import add_user, get_users
 from os.path import exists as file_exists
 from json_file import create_json_file
 import json
@@ -20,15 +20,6 @@ label_question = [
         "message":"New Expense - Label: ",
     },
 ]
-
-def get_users():
-    usersFileName = "data/users.json"
-    users = []
-    if file_exists(usersFileName):
-        usersFile = open(usersFileName, "r")
-        users = json.loads(usersFile.read())
-    return users
-
 
 def new_expense(*args):
     expensesFileName = "data/expenses.json"
